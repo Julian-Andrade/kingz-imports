@@ -11,10 +11,17 @@ import {
 } from "lucide-react";
 import { Button } from "./button";
 import { Card } from "./card";
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTrigger,
+} from "./sheet";
 import { signIn, useSession, signOut } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
 export const Header = () => {
   const { status, data } = useSession();
@@ -86,23 +93,42 @@ export const Header = () => {
                 Sair
               </Button>
             )}
-            <Button variant="outline" className="w-full justify-start gap-2">
-              <Home size={16} />
-              Página Inicial
-            </Button>
+
+            <SheetClose asChild>
+              <Link href="/">
+                <Button
+                  variant="outline"
+                  className="w-full justify-start gap-2"
+                >
+                  <Home size={16} />
+                  Página Inicial
+                </Button>
+              </Link>
+            </SheetClose>
+
             <Button variant="outline" className="w-full justify-start gap-2">
               <Percent size={16} />
               Ofertas
             </Button>
-            <Button variant="outline" className="w-full justify-start gap-2">
-              <ListOrdered size={16} />
-              Catálogo
-            </Button>
+
+            <SheetClose asChild>
+              <Link href="/catalog">
+                <Button
+                  variant="outline"
+                  className="w-full justify-start gap-2"
+                >
+                  <ListOrdered size={16} />
+                  Catálogo
+                </Button>
+              </Link>
+            </SheetClose>
           </div>
         </SheetContent>
       </Sheet>
 
-      <h1 className="text-lg font-semibold">Andrade Store</h1>
+      <Link href="/">
+        <h1 className="text-lg font-semibold">Andrade Store</h1>
+      </Link>
 
       <Button size="icon" variant="outline">
         <ShoppingCartIcon />
