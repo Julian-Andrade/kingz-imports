@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { Badge } from "./badge";
 
 interface BadgeTitleProps {
-  title: string;
+  title?: string;
   iconSvg: ReactNode;
 }
 
