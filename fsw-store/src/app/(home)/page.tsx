@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Categories from "./components/categories/categories";
 import { prismaClient } from "@/lib/prisma";
 import ProductCarouselList from "./components/products/product-carousel-list";
