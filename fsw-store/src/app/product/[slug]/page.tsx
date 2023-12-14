@@ -1,6 +1,6 @@
 import { prismaClient } from "@/lib/prisma";
 import ProductImages from "./components/product-images";
-import ProductInfo from "./components/product.info";
+import ProductInfo from "./components/product-info";
 import productTotalPrice from "@/utils/product";
 import ProductCarouselList from "@/components/ui/product-carousel-list";
 import SectionTitle from "@/components/ui/section-title";
