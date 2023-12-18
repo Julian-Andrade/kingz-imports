@@ -22,6 +22,7 @@ import { signIn, useSession, signOut } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
+import Cart from "./cart";
 
 export const Header = () => {
   const { status, data } = useSession();
@@ -127,12 +128,20 @@ export const Header = () => {
       </Sheet>
 
       <Link href="/">
-        <h1 className="text-lg font-semibold">Andrade Store</h1>
+        <h1 className="text-lg font-semibold">kalz imports</h1>
       </Link>
 
-      <Button size="icon" variant="outline">
-        <ShoppingCartIcon />
-      </Button>
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button size="icon" variant="outline">
+            <ShoppingCartIcon />
+          </Button>
+        </SheetTrigger>
+
+        <SheetContent side="right">
+          <Cart />
+        </SheetContent>
+      </Sheet>
     </Card>
   );
 };
