@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { ShoppingCartIcon } from "lucide-react";
 import BadgeTitle from "./badge-title";
 import { CartContext } from "@/providers/cart";
+import CartItem from "./cart-item";
+import productTotalPrice from "@/utils/product";
 
 const Cart = () => {
   const { products } = useContext(CartContext);
@@ -11,9 +13,14 @@ const Cart = () => {
       <BadgeTitle iconSvg={<ShoppingCartIcon size={16} />} title="Carrinho" />
 
       {/* Render Products */}
-      {products.map((product) => (
-        <h1 key={product.id}>{product.name}</h1>
-      ))}
+      <div className="flex flex-col">
+        {products.map((product) => (
+          <CartItem
+            key={product.id}
+            product={productTotalPrice(product as any) as any}
+          />
+        ))}
+      </div>
     </div>
   );
 };
