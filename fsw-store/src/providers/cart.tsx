@@ -14,6 +14,7 @@ interface ICartContext {
   cartTotalDiscount: number;
   addProductToCart: (product: CartProduct) => void;
   descreaseProductToCart: (productId: string) => void;
+  increaseProductToCart: (productId: string) => void;
 }
 
 interface CartProviderProps {
@@ -27,6 +28,7 @@ export const CartContext = createContext<ICartContext>({
   cartTotalDiscount: 0,
   addProductToCart: () => {},
   descreaseProductToCart: () => {},
+  increaseProductToCart: () => {},
 });
 
 const CartProvider = ({ children }: CartProviderProps) => {
@@ -61,7 +63,6 @@ const CartProvider = ({ children }: CartProviderProps) => {
 
   const descreaseProductToCart = (productId: string) => {
     // If quantity is 1, erase the product to cart
-
     // If quantity is than 1, decrease the quantity in 1
     setProducts((prev) =>
       prev
@@ -79,12 +80,29 @@ const CartProvider = ({ children }: CartProviderProps) => {
     );
   };
 
+  const increaseProductToCart = (productId: string) => {
+    // If quantity is 1, increase the quantity to product in cart
+    setProducts((prev) =>
+      prev.map((cartProduct) => {
+        if (cartProduct.id === productId) {
+          return {
+            ...cartProduct,
+            quantity: cartProduct.quantity + 1,
+          };
+        }
+
+        return cartProduct;
+      }),
+    );
+  };
+
   return (
     <CartContext.Provider
       value={{
         products,
         addProductToCart,
         descreaseProductToCart,
+        increaseProductToCart,
         cartBasePrice: 0,
         cartTotalPrice: 0,
         cartTotalDiscount: 0,
