@@ -45,14 +45,14 @@ const CartProvider = ({ children }: CartProviderProps) => {
   // Cart total without discount
   const subTotal = useMemo(() => {
     return products.reduce((acc, product) => {
-      return acc + Number(product.basePrice);
+      return acc + Number(product.basePrice) * product.quantity;
     }, 0);
   }, [products]);
 
   // Cart total with discount
   const total = useMemo(() => {
     return products.reduce((acc, product) => {
-      return acc + Number(product.totalPrice);
+      return acc + Number(product.totalPrice) * product.quantity;
     }, 0);
   }, [products]);
 
