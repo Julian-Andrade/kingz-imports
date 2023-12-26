@@ -1,6 +1,6 @@
 "use client";
 
-import product, { ProductTotalPriceProps } from "@/utils/product";
+import { ProductTotalPriceProps } from "@/utils/product";
 import { ReactNode, createContext, useMemo, useState } from "react";
 
 export interface CartProduct extends ProductTotalPriceProps {

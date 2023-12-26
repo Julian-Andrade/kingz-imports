@@ -5,29 +5,35 @@ import { CartContext } from "@/providers/cart";
 import CartItem from "./cart-item";
 import productTotalPrice from "@/utils/product";
 import { Separator } from "./separator";
+import { ScrollArea } from "./scroll-area";
+import { Button } from "./button";
 
 const Cart = () => {
   const { products, subTotal, total, totalDiscount } = useContext(CartContext);
 
   return (
-    <div>
+    <div className="flex h-full flex-col">
       <BadgeTitle iconSvg={<ShoppingCartIcon size={16} />} title="Carrinho" />
 
       {/* Render Products */}
-      <div className="flex flex-col">
-        {products.length > 0 ? (
-          products.map((product) => (
-            <CartItem
-              key={product.id}
-              product={productTotalPrice(product as any) as any}
-            />
-          ))
-        ) : (
-          <p className="mt-10 p-5 text-center font-semibold">
-            Você ainda não possui nenhum item adicionado ao carrinho. Vamos as
-            compras!
-          </p>
-        )}
+      <div className="flex h-full max-h-full flex-col overflow-hidden">
+        <ScrollArea className="h-full">
+          <div className="flex h-full flex-col gap-3">
+            {products.length > 0 ? (
+              products.map((product) => (
+                <CartItem
+                  key={product.id}
+                  product={productTotalPrice(product as any) as any}
+                />
+              ))
+            ) : (
+              <p className="mt-10 p-5 text-center font-semibold">
+                Você ainda não possui nenhum item adicionado ao carrinho. Vamos
+                as compras!
+              </p>
+            )}
+          </div>
+        </ScrollArea>
       </div>
 
       <div className="mt-8 flex flex-col gap-4">
@@ -58,6 +64,8 @@ const Cart = () => {
           <p>Total</p>
           <p>R$ {total.toFixed(2)}</p>
         </div>
+
+        <Button className="mt-8 font-bold uppercase">Finalizar</Button>
       </div>
     </div>
   );
