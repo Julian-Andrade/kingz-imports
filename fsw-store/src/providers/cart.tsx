@@ -1,7 +1,7 @@
 "use client";
 
-import { ProductTotalPriceProps } from "@/utils/product";
-import { ReactNode, createContext, useState } from "react";
+import product, { ProductTotalPriceProps } from "@/utils/product";
+import { ReactNode, createContext, useMemo, useState } from "react";
 
 export interface CartProduct extends ProductTotalPriceProps {
   quantity: number;
@@ -12,6 +12,9 @@ interface ICartContext {
   cartBasePrice: number;
   cartTotalPrice: number;
   cartTotalDiscount: number;
+  total: number;
+  subTotal: number;
+  totalDiscount: number;
   addProductToCart: (product: CartProduct) => void;
   descreaseProductToCart: (productId: string) => void;
   increaseProductToCart: (productId: string) => void;
@@ -27,6 +30,9 @@ export const CartContext = createContext<ICartContext>({
   cartBasePrice: 0,
   cartTotalPrice: 0,
   cartTotalDiscount: 0,
+  total: 0,
+  subTotal: 0,
+  totalDiscount: 0,
   addProductToCart: () => {},
   descreaseProductToCart: () => {},
   increaseProductToCart: () => {},
@@ -35,6 +41,23 @@ export const CartContext = createContext<ICartContext>({
 
 const CartProvider = ({ children }: CartProviderProps) => {
   const [products, setProducts] = useState<CartProduct[]>([]);
+
+  // Cart total without discount
+  const subTotal = useMemo(() => {
+    return products.reduce((acc, product) => {
+      return acc + Number(product.basePrice);
+    }, 0);
+  }, [products]);
+
+  // Cart total with discount
+  const total = useMemo(() => {
+    return products.reduce((acc, product) => {
+      return acc + Number(product.totalPrice);
+    }, 0);
+  }, [products]);
+
+  // Calculate cart total with discount
+  const totalDiscount = subTotal - total;
 
   const addProductToCart = (product: CartProduct) => {
     // Verify if item already in cart
@@ -113,6 +136,9 @@ const CartProvider = ({ children }: CartProviderProps) => {
         descreaseProductToCart,
         increaseProductToCart,
         removeProductToCart,
+        total,
+        subTotal,
+        totalDiscount,
         cartBasePrice: 0,
         cartTotalPrice: 0,
         cartTotalDiscount: 0,
