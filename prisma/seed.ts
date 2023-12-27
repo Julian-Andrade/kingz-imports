@@ -6,8 +6,8 @@ async function main() {
   try {
     const mousesCategory = await prisma.category.create({
       data: {
-        name: "Mouses",
-        slug: "mouses",
+        name: "Iphone",
+        slug: "iphone",
         imageUrl: "https://fsw-store.s3.sa-east-1.amazonaws.com/mouses.png",
       },
     });
