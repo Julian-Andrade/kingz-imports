@@ -1,32 +1,32 @@
-"use client";
+'use client'
 
-import BadgeDiscount from "@/components/ui/badge-discount";
-import { Button } from "@/components/ui/button";
-import { CartContext } from "@/providers/cart";
-import { ProductTotalPriceProps } from "@/utils/product";
-import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
-import { useContext, useState } from "react";
+import BadgeDiscount from '@/components/ui/badge-discount'
+import { Button } from '@/components/ui/button'
+import { CartContext } from '@/providers/cart'
+import { ProductTotalPriceProps } from '@/utils/product'
+import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
+import { useContext, useState } from 'react'
 
 interface ProductInfoProps {
-  product: ProductTotalPriceProps;
+  product: ProductTotalPriceProps
 }
 
 const ProductInfo = ({ product }: ProductInfoProps) => {
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1)
 
-  const { addProductToCart } = useContext(CartContext);
+  const { addProductToCart } = useContext(CartContext)
 
   const handleDecreaseQuantityClick = () => {
-    setQuantity((quantity) => (quantity === 1 ? quantity : quantity - 1));
-  };
+    setQuantity((quantity) => (quantity === 1 ? quantity : quantity - 1))
+  }
 
   const handleIncreaseQuantityClick = () => {
-    setQuantity((quantity) => quantity + 1);
-  };
+    setQuantity((quantity) => quantity + 1)
+  }
 
   const handleAddToCartQuantity = () => {
-    addProductToCart({ ...product, quantity });
-  };
+    addProductToCart({ ...product, quantity })
+  }
 
   return (
     <div className="flex flex-col p-5">
@@ -73,7 +73,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
         adicionar ao carrinho
       </Button>
     </div>
-  );
-};
+  )
+}
 
-export default ProductInfo;
+export default ProductInfo

@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
-import { Badge } from "./badge";
+import { ReactNode } from 'react'
+import { Badge } from './badge'
 
 interface BadgeTitleProps {
-  title?: string;
-  iconSvg: ReactNode;
+  title?: string
+  iconSvg: ReactNode
 }
 
 const BadgeTitle = ({ title, iconSvg }: BadgeTitleProps) => {
@@ -15,7 +15,7 @@ const BadgeTitle = ({ title, iconSvg }: BadgeTitleProps) => {
       {iconSvg}
       {title}
     </Badge>
-  );
-};
+  )
+}
 
-export default BadgeTitle;
+export default BadgeTitle

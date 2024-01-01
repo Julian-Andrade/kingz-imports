@@ -1,17 +1,10 @@
-import {
-  HeadphonesIcon,
-  KeyboardIcon,
-  MonitorIcon,
-  MouseIcon,
-  SpeakerIcon,
-  SquareIcon,
-} from "lucide-react";
+import { SmartphoneIcon, TabletSmartphoneIcon, MonitorIcon, WatchIcon, HeadphonesIcon, AppleIcon } from 'lucide-react'
 
 export const CATEGORY_ICON = {
-  keyboards: <KeyboardIcon />,
-  monitors: <MonitorIcon />,
-  headphones: <HeadphonesIcon />,
-  mousepads: <SquareIcon />,
-  speakers: <SpeakerIcon />,
-  mouses: <MouseIcon />,
-};
+  ipads: <TabletSmartphoneIcon />,
+  macs: <MonitorIcon />,
+  iphones: <SmartphoneIcon />,
+  airpods: <HeadphonesIcon />,
+  watchs: <WatchIcon />,
+  acessorios: <AppleIcon />,
+}

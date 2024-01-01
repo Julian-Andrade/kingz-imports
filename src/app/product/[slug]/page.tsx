@@ -1,14 +1,14 @@
-import { prismaClient } from "@/lib/prisma";
-import ProductImages from "./components/product-images";
-import ProductInfo from "./components/product-info";
-import productTotalPrice from "@/utils/product";
-import ProductCarouselList from "@/components/ui/product-carousel-list";
-import SectionTitle from "@/components/ui/section-title";
+import { prismaClient } from '@/lib/prisma'
+import ProductImages from './components/product-images'
+import ProductInfo from './components/product-info'
+import productTotalPrice from '@/utils/product'
+import ProductCarouselList from '@/components/ui/product-carousel-list'
+import SectionTitle from '@/components/ui/section-title'
 
 interface ProductDetailsPageProps {
   params: {
-    slug: string;
-  };
+    slug: string
+  }
 }
 
 const ProductDetailsPage = async ({
@@ -16,7 +16,7 @@ const ProductDetailsPage = async ({
 }: ProductDetailsPageProps) => {
   const product = await prismaClient.product.findFirst({
     where: {
-      slug: slug,
+      slug,
     },
     include: {
       category: {
@@ -31,9 +31,9 @@ const ProductDetailsPage = async ({
         },
       },
     },
-  });
+  })
 
-  if (!product) return null;
+  if (!product) return null
 
   return (
     <div className="flex flex-col">
@@ -45,7 +45,7 @@ const ProductDetailsPage = async ({
         <ProductCarouselList products={product.category.Product} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProductDetailsPage;
+export default ProductDetailsPage

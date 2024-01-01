@@ -1,8 +1,8 @@
-import BadgeTitle from "@/components/ui/badge-title";
-import ProductItem from "@/components/ui/product-item";
-import { CATEGORY_ICON } from "@/constants/category-icon";
-import { prismaClient } from "@/lib/prisma";
-import productTotalPrice from "@/utils/product";
+import BadgeTitle from '@/components/ui/badge-title'
+import ProductItem from '@/components/ui/product-item'
+import { CATEGORY_ICON } from '@/constants/category-icon'
+import { prismaClient } from '@/lib/prisma'
+import productTotalPrice from '@/utils/product'
 
 const CategoryProducts = async ({ params }: any) => {
   const category = await prismaClient.category.findFirst({
@@ -12,10 +12,10 @@ const CategoryProducts = async ({ params }: any) => {
     include: {
       Product: true,
     },
-  });
+  })
 
   if (!category) {
-    return null;
+    return null
   }
 
   return (
@@ -31,7 +31,7 @@ const CategoryProducts = async ({ params }: any) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CategoryProducts;
+export default CategoryProducts

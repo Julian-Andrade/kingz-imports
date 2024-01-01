@@ -1,9 +1,9 @@
-import ProductItem from "@/components/ui/product-item";
-import productTotalPrice from "@/utils/product";
-import { Product } from "@prisma/client";
+import ProductItem from '@/components/ui/product-item'
+import productTotalPrice from '@/utils/product'
+import { Product } from '@prisma/client'
 
 interface ProductCarouselListProps {
-  products: Product[];
+  products: Product[]
 }
 
 const ProductCarouselList = ({ products }: ProductCarouselListProps) => {
@@ -15,7 +15,7 @@ const ProductCarouselList = ({ products }: ProductCarouselListProps) => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default ProductCarouselList;
+export default ProductCarouselList

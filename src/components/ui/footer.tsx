@@ -5,7 +5,7 @@ const Footer = () => {
         &copy; 2023 Copyright <span className="font-bold">Andrade Store</span>
       </p>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

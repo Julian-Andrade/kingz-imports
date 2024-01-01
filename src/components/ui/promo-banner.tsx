@@ -1,4 +1,4 @@
-import Image, { ImageProps } from "next/image";
+import Image, { ImageProps } from 'next/image'
 
 const PromoBanner = ({ alt, ...props }: ImageProps) => {
   return (
@@ -11,7 +11,7 @@ const PromoBanner = ({ alt, ...props }: ImageProps) => {
       priority
       alt={alt}
     />
-  );
-};
+  )
+}
 
-export default PromoBanner;
+export default PromoBanner

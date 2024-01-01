@@ -1,10 +1,10 @@
-import BadgeTitle from "@/components/ui/badge-title";
-import { ListOrdered } from "lucide-react";
-import CategoryItem from "./components/category-item";
-import { prismaClient } from "@/lib/prisma";
+import BadgeTitle from '@/components/ui/badge-title'
+import { ListOrdered } from 'lucide-react'
+import CategoryItem from './components/category-item'
+import { prismaClient } from '@/lib/prisma'
 
 export default async function CatalogPage() {
-  const categories = await prismaClient.category.findMany({});
+  const categories = await prismaClient.category.findMany({})
 
   return (
     <div className="flex flex-col gap-8 p-5">
@@ -16,5 +16,5 @@ export default async function CatalogPage() {
         ))}
       </div>
     </div>
-  );
+  )
 }

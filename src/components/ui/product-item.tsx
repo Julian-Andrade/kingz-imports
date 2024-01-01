@@ -1,12 +1,12 @@
-import { ProductTotalPriceProps } from "@/utils/product";
-import { ArrowDownIcon } from "lucide-react";
-import Image from "next/image";
-import { Badge } from "./badge";
-import Link from "next/link";
-import BadgeDiscount from "./badge-discount";
+import { ProductTotalPriceProps } from '@/utils/product'
+import { ArrowDownIcon } from 'lucide-react'
+import Image from 'next/image'
+import { Badge } from './badge'
+import Link from 'next/link'
+import BadgeDiscount from './badge-discount'
 
 interface ProductItemProps {
-  product: ProductTotalPriceProps;
+  product: ProductTotalPriceProps
 }
 
 const ProductItem = ({ product }: ProductItemProps) => {
@@ -22,7 +22,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
             className="h-auto max-h-[75%] w-auto max-w-[75%]"
             alt={product.slug}
             style={{
-              objectFit: "contain",
+              objectFit: 'contain',
             }}
           />
 
@@ -55,7 +55,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
         </div>
       </div>
     </Link>
-  );
-};
+  )
+}
 
-export default ProductItem;
+export default ProductItem

@@ -1,28 +1,28 @@
-import { CartContext, CartProduct } from "@/providers/cart";
-import { ArrowLeftIcon, ArrowRightIcon, TrashIcon } from "lucide-react";
-import Image from "next/image";
-import { Button } from "./button";
-import { useContext } from "react";
+import { CartContext, CartProduct } from '@/providers/cart'
+import { ArrowLeftIcon, ArrowRightIcon, TrashIcon } from 'lucide-react'
+import Image from 'next/image'
+import { Button } from './button'
+import { useContext } from 'react'
 
 interface CartItemProps {
-  product: CartProduct;
+  product: CartProduct
 }
 
 const CartItem = ({ product }: CartItemProps) => {
   const { descreaseProductToCart, increaseProductToCart, removeProductToCart } =
-    useContext(CartContext);
+    useContext(CartContext)
 
   const handleDecreaseProductQuantityClick = () => {
-    descreaseProductToCart(product.id);
-  };
+    descreaseProductToCart(product.id)
+  }
 
   const handleIncreaseProductQuantityClick = () => {
-    increaseProductToCart(product.id);
-  };
+    increaseProductToCart(product.id)
+  }
 
   const handleRemoveProductQuantityClick = () => {
-    removeProductToCart(product.id);
-  };
+    removeProductToCart(product.id)
+  }
 
   return (
     <div className="mt-4 flex items-center justify-between gap-5">
@@ -78,7 +78,7 @@ const CartItem = ({ product }: CartItemProps) => {
         <TrashIcon size={16} />
       </Button>
     </div>
-  );
-};
+  )
+}
 
-export default CartItem;
+export default CartItem

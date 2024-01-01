@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import {
   MenuIcon,
@@ -8,32 +8,32 @@ import {
   Home,
   ListOrdered,
   MoveLeft,
-} from "lucide-react";
-import { Button } from "./button";
-import { Card } from "./card";
+} from 'lucide-react'
+import { Button } from './button'
+import { Card } from './card'
 import {
   Sheet,
   SheetClose,
   SheetContent,
   SheetHeader,
   SheetTrigger,
-} from "./sheet";
-import { signIn, useSession, signOut } from "next-auth/react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
-import Cart from "./cart";
+} from './sheet'
+import { signIn, useSession, signOut } from 'next-auth/react'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Separator } from '@/components/ui/separator'
+import Link from 'next/link'
+import Cart from './cart'
 
 export const Header = () => {
-  const { status, data } = useSession();
+  const { status, data } = useSession()
 
   const handleLoginClick = async () => {
-    await signIn();
-  };
+    await signIn()
+  }
 
   const handleLogoutClick = async () => {
-    await signOut();
-  };
+    await signOut()
+  }
 
   return (
     <Card className="flex items-center justify-between p-[2rem]">
@@ -49,10 +49,10 @@ export const Header = () => {
             Menu
           </SheetHeader>
 
-          {status === "authenticated" && (
+          {status === 'authenticated' && (
             <div className="flex flex-col gap-4">
               <div className="mt-4 flex items-center gap-4 rounded-md bg-zinc-200 p-2">
-                {status === "authenticated" && data?.user && (
+                {status === 'authenticated' && data?.user && (
                   <Avatar>
                     <AvatarFallback>
                       {data.user.name?.[0].toUpperCase()}
@@ -74,7 +74,7 @@ export const Header = () => {
           )}
 
           <div className="mt-4 flex flex-col gap-2">
-            {status === "unauthenticated" && (
+            {status === 'unauthenticated' && (
               <Button
                 onClick={handleLoginClick}
                 variant="outline"
@@ -84,7 +84,7 @@ export const Header = () => {
                 Entrar
               </Button>
             )}
-            {status === "authenticated" && (
+            {status === 'authenticated' && (
               <Button
                 onClick={handleLogoutClick}
                 variant="outline"
@@ -143,5 +143,5 @@ export const Header = () => {
         </SheetContent>
       </Sheet>
     </Card>
-  );
-};
+  )
+}
