@@ -1,7 +1,5 @@
 import { ProductTotalPriceProps } from '@/utils/product'
-import { ArrowDownIcon } from 'lucide-react'
 import Image from 'next/image'
-import { Badge } from './badge'
 import Link from 'next/link'
 import BadgeDiscount from './badge-discount'
 

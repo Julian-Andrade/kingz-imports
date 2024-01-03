@@ -4,7 +4,7 @@ import BadgeDiscount from '@/components/ui/badge-discount'
 import { Button } from '@/components/ui/button'
 import { CartContext } from '@/providers/cart'
 import { ProductTotalPriceProps } from '@/utils/product'
-import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
+import { MinusIcon, PlusIcon } from 'lucide-react'
 import { useContext, useState } from 'react'
 import { useSession } from 'next-auth/react'
 
@@ -52,13 +52,13 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
 
       <div className='mt-4 flex items-center gap-4'>
         <Button size='icon' variant='outline'>
-          <ArrowLeftIcon size={16} onClick={handleDecreaseQuantityClick} />
+          <MinusIcon size={16} onClick={handleDecreaseQuantityClick} />
         </Button>
 
         <span>{quantity}</span>
 
         <Button size='icon' variant='outline'>
-          <ArrowRightIcon size={16} onClick={handleIncreaseQuantityClick} />
+          <PlusIcon size={16} onClick={handleIncreaseQuantityClick} />
         </Button>
       </div>
 
