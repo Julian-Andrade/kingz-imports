@@ -24,13 +24,13 @@ const Cart = () => {
   }
 
   return (
-    <div className="flex h-full flex-col">
-      <BadgeTitle iconSvg={<ShoppingCartIcon size={16} />} title="Carrinho" />
+    <div className='flex h-full flex-col'>
+      <BadgeTitle iconSvg={<ShoppingCartIcon size={16} />} title='Carrinho' />
 
       {/* Render Products */}
-      <div className="flex h-full max-h-full flex-col overflow-hidden">
-        <ScrollArea className="h-full">
-          <div className="flex h-full flex-col gap-3">
+      <div className='flex h-full max-h-full flex-col overflow-hidden'>
+        <ScrollArea className='h-full'>
+          <div className='flex h-full flex-col gap-3'>
             {products.length > 0 ? (
               products.map((product) => (
                 <CartItem
@@ -39,7 +39,7 @@ const Cart = () => {
                 />
               ))
             ) : (
-              <p className="mt-10 p-5 text-center font-semibold">
+              <p className='mt-10 p-5 text-center font-semibold'>
                 Você ainda não possui nenhum item adicionado ao carrinho. Vamos
                 as compras!
               </p>
@@ -49,35 +49,35 @@ const Cart = () => {
       </div>
 
       {products.length > 0 && (
-        <div className="mt-8 flex flex-col gap-4">
-          <div className="flex items-center justify-between text-xs">
+        <div className='mt-8 flex flex-col gap-4'>
+          <div className='flex items-center justify-between text-xs'>
             <p>Subtotal</p>
             <p>R$ {subTotal.toFixed(2)}</p>
           </div>
 
           <Separator />
 
-          <div className="flex items-center justify-between text-xs">
+          <div className='flex items-center justify-between text-xs'>
             <p>Entrega</p>
             <p>Grátis</p>
           </div>
 
           <Separator />
 
-          <div className="flex items-center justify-between text-xs">
+          <div className='flex items-center justify-between text-xs'>
             <p>Descontos</p>
             <p>- R$ {totalDiscount.toFixed(2)}</p>
           </div>
 
           <Separator />
 
-          <div className="flex items-center justify-between text-sm font-bold">
+          <div className='flex items-center justify-between text-md font-bold'>
             <p>Total</p>
             <p>R$ {total.toFixed(2)}</p>
           </div>
 
           <Button
-            className="mt-8 font-bold uppercase"
+            className='mt-8 font-bold uppercase'
             onClick={handleFinishPurchaseClick}
           >
             Finalizar

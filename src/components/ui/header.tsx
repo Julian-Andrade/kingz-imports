@@ -36,22 +36,26 @@ export const Header = () => {
   }
 
   return (
-    <Card className="flex items-center justify-between p-[2rem]">
+    <Card className='flex items-center justify-between p-[2rem]'>
       <Sheet>
         <SheetTrigger asChild>
-          <Button size="icon" variant="outline">
+          <Button
+            size='icon'
+            variant='outline'
+            className='border-zinc-200 hover:bg-zinc-200'
+          >
             <MenuIcon />
           </Button>
         </SheetTrigger>
 
-        <SheetContent side="left">
-          <SheetHeader className="text-left text-lg font-semibold">
+        <SheetContent side='left'>
+          <SheetHeader className='text-left text-lg font-semibold'>
             Menu
           </SheetHeader>
 
           {status === 'authenticated' && (
-            <div className="flex flex-col gap-4">
-              <div className="mt-4 flex items-center gap-4 rounded-md bg-zinc-200 p-2">
+            <div className='flex flex-col gap-4'>
+              <div className='mt-4 flex items-center gap-4 rounded-md bg-zinc-200 p-2'>
                 {status === 'authenticated' && data?.user && (
                   <Avatar>
                     <AvatarFallback>
@@ -61,9 +65,9 @@ export const Header = () => {
                   </Avatar>
                 )}
 
-                <div className="flex flex-col">
-                  <p className="font-bold">{data?.user?.name}</p>
-                  <span className="text-sm font-light">
+                <div className='flex flex-col'>
+                  <p className='font-bold'>{data?.user?.name}</p>
+                  <span className='text-sm font-light'>
                     {data?.user?.email}
                   </span>
                 </div>
@@ -73,12 +77,12 @@ export const Header = () => {
             </div>
           )}
 
-          <div className="mt-4 flex flex-col gap-2">
+          <div className='mt-4 flex flex-col gap-2'>
             {status === 'unauthenticated' && (
               <Button
                 onClick={handleLoginClick}
-                variant="outline"
-                className="w-full justify-start gap-2"
+                variant='outline'
+                className='w-full justify-start gap-2 border-zinc-200 hover:bg-zinc-200'
               >
                 <MoveRight size={16} />
                 Entrar
@@ -87,8 +91,8 @@ export const Header = () => {
             {status === 'authenticated' && (
               <Button
                 onClick={handleLogoutClick}
-                variant="outline"
-                className="w-full justify-start gap-2"
+                variant='outline'
+                className='w-full justify-start gap-2 border-zinc-200 hover:bg-zinc-200'
               >
                 <MoveLeft size={16} />
                 Sair
@@ -96,10 +100,10 @@ export const Header = () => {
             )}
 
             <SheetClose asChild>
-              <Link href="/">
+              <Link href='/'>
                 <Button
-                  variant="outline"
-                  className="w-full justify-start gap-2"
+                  variant='outline'
+                  className='w-full justify-start gap-2 border-zinc-200 hover:bg-zinc-200'
                 >
                   <Home size={16} />
                   Página Inicial
@@ -107,16 +111,19 @@ export const Header = () => {
               </Link>
             </SheetClose>
 
-            <Button variant="outline" className="w-full justify-start gap-2">
+            <Button
+              variant='outline'
+              className='w-full justify-start gap-2 border-zinc-200 hover:bg-zinc-200'
+            >
               <Percent size={16} />
               Ofertas
             </Button>
 
             <SheetClose asChild>
-              <Link href="/catalog">
+              <Link href='/catalog'>
                 <Button
-                  variant="outline"
-                  className="w-full justify-start gap-2"
+                  variant='outline'
+                  className='w-full justify-start gap-2 border-zinc-200 hover:bg-zinc-200'
                 >
                   <ListOrdered size={16} />
                   Catálogo
@@ -127,18 +134,24 @@ export const Header = () => {
         </SheetContent>
       </Sheet>
 
-      <Link href="/">
-        <h1 className="text-lg font-semibold">kalz imports</h1>
+      <Link href='/'>
+        <h1 className='text-lg'>
+          <span className='font-bold'>JUST</span> imports
+        </h1>
       </Link>
 
       <Sheet>
         <SheetTrigger asChild>
-          <Button size="icon" variant="outline">
+          <Button
+            size='icon'
+            variant='outline'
+            className='border-zinc-200 hover:bg-zinc-200'
+          >
             <ShoppingCartIcon />
           </Button>
         </SheetTrigger>
 
-        <SheetContent side="right">
+        <SheetContent side='right'>
           <Cart />
         </SheetContent>
       </Sheet>

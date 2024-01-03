@@ -9,8 +9,8 @@ interface BadgeTitleProps {
 const BadgeTitle = ({ title, iconSvg }: BadgeTitleProps) => {
   return (
     <Badge
-      className="w-fit gap-1 border-2 px-3 py-2 text-base uppercase"
-      variant="outline"
+      className='w-fit gap-1 border-2 px-3 py-2 text-base uppercase border-zinc-200'
+      variant='outline'
     >
       {iconSvg}
       {title}

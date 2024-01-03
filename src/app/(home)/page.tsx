@@ -3,6 +3,7 @@ import { prismaClient } from '@/lib/prisma'
 import SectionTitle from '@/components/ui/section-title'
 import PromoBanner from '@/components/ui/promo-banner'
 import ProductCarouselList from '@/components/ui/product-carousel-list'
+import Link from 'next/link'
 
 export default async function Home() {
   const deals = await prismaClient.product.findMany({
@@ -30,9 +31,14 @@ export default async function Home() {
   })
 
   return (
-    <div className='p-5'>
+    <div className='p-5 bg-zinc-100'>
       <div className='mt-7'>
-        <PromoBanner src='/banner-home-01.png' alt='Até 55% de desconto apenas este mês' />
+        <Link href='/category/iphones'>
+          <PromoBanner
+            src='/banner-home-01.png'
+            alt='diversos modelos de iphone'
+          />
+        </Link>
       </div>
 
       <div className='mt-7'>
@@ -45,7 +51,12 @@ export default async function Home() {
       </div>
 
       <div className='mt-7'>
-        <PromoBanner src='/banner-home-02.png' alt='Até 55% de desconto em mouses' />
+        <Link href='/category/watchs'>
+          <PromoBanner
+            src='/banner-home-02.png'
+            alt='os melhores watchs já criados'
+          />
+        </Link>
       </div>
 
       <div className='mt-7'>
@@ -54,7 +65,12 @@ export default async function Home() {
       </div>
 
       <div className='mt-7'>
-        <PromoBanner src='/banner-home-03.png' alt='Até 20% de desconto em fones' />
+        <Link href='/category/ipads'>
+          <PromoBanner
+            src='/banner-home-03.png'
+            alt='encontre o ipad perfeito para você'
+          />
+        </Link>
       </div>
 
       <div className='mt-7'>

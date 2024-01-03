@@ -19,13 +19,13 @@ const CategoryProducts = async ({ params }: any) => {
   }
 
   return (
-    <div className="flex flex-col gap-8 p-5">
+    <div className='flex flex-col gap-8 p-5 bg-zinc-100'>
       <BadgeTitle
         iconSvg={CATEGORY_ICON[params.slug as keyof typeof CATEGORY_ICON]}
         title={category?.name}
       />
 
-      <div className="grid grid-cols-2 gap-10">
+      <div className='grid grid-cols-2 gap-10'>
         {category.Product.map((product) => (
           <ProductItem key={product.id} product={productTotalPrice(product)} />
         ))}

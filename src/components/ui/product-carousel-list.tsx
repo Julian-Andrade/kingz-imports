@@ -8,9 +8,9 @@ interface ProductCarouselListProps {
 
 const ProductCarouselList = ({ products }: ProductCarouselListProps) => {
   return (
-    <div className="flex w-full gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+    <div className='flex w-full gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden'>
       {products.map((product) => (
-        <div key={product.id} className="w-[170px]">
+        <div key={product.id} className='w-[170px]'>
           <ProductItem product={productTotalPrice(product)} />
         </div>
       ))}
