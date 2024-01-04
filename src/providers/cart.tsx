@@ -40,9 +40,7 @@ export const CartContext = createContext<ICartContext>({
 })
 
 const CartProvider = ({ children }: CartProviderProps) => {
-  const [products, setProducts] = useState<CartProduct[]>(
-    JSON.parse(localStorage.getItem('@kingz-imports/cart-itens') || '[]')
-  )
+  const [products, setProducts] = useState<CartProduct[]>([])
 
   // Add Cart Itens to LocalStorage
   useEffect(() => {
