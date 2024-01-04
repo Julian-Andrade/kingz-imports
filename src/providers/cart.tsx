@@ -62,7 +62,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
   const addProductToCart = (product: CartProduct) => {
     // Verify if item already in cart
     const productIsAlreadyInCart = products.some(
-      (cartProduct) => cartProduct.id === product.id,
+      (cartProduct) => cartProduct.id === product.id
     )
 
     // If item is already in the cart, add more quantity with last item quantity
@@ -76,7 +76,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
             }
           }
           return cartProduct
-        }),
+        })
       )
 
       return
@@ -101,7 +101,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
 
           return cartProduct
         })
-        .filter((cartProduct) => cartProduct.quantity > 0),
+        .filter((cartProduct) => cartProduct.quantity > 0)
     )
   }
 
@@ -117,14 +117,14 @@ const CartProvider = ({ children }: CartProviderProps) => {
         }
 
         return cartProduct
-      }),
+      })
     )
   }
 
   // Remove item from cart list
   const removeProductToCart = (productId: string) => {
     setProducts((prev) =>
-      prev.filter((cartProduct) => cartProduct.id !== productId),
+      prev.filter((cartProduct) => cartProduct.id !== productId)
     )
   }
 

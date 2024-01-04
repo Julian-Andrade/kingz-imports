@@ -1,6 +1,15 @@
 {
   "extends": [
-    "@rocketseat/eslint-config/next", 
+    "@rocketseat/eslint-config/next",
     "next/core-web-vitals"
-  ]
+  ],
+  "rules": {
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off"
+  },
+  "module.exports": {
+    "rules": {
+      "@typescript-eslint/no-explicit-any": "error"
+    }
+  }
 }

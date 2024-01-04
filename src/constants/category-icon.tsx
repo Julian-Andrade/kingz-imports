@@ -1,4 +1,11 @@
-import { SmartphoneIcon, TabletSmartphoneIcon, MonitorIcon, WatchIcon, HeadphonesIcon, AppleIcon } from 'lucide-react'
+import {
+  SmartphoneIcon,
+  TabletSmartphoneIcon,
+  MonitorIcon,
+  WatchIcon,
+  HeadphonesIcon,
+  AppleIcon,
+} from 'lucide-react'
 
 export const CATEGORY_ICON = {
   ipads: <TabletSmartphoneIcon />,
