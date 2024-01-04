@@ -1,7 +1,7 @@
 'use client'
 
 import { ProductTotalPriceProps } from '@/utils/product'
-import { ReactNode, createContext, useMemo, useState } from 'react'
+import { ReactNode, createContext, useEffect, useMemo, useState } from 'react'
 
 export interface CartProduct extends ProductTotalPriceProps {
   quantity: number
@@ -40,7 +40,14 @@ export const CartContext = createContext<ICartContext>({
 })
 
 const CartProvider = ({ children }: CartProviderProps) => {
-  const [products, setProducts] = useState<CartProduct[]>([])
+  const [products, setProducts] = useState<CartProduct[]>(
+    JSON.parse(localStorage.getItem('@kingz-imports/cart-itens') || '[]')
+  )
+
+  // Add Cart Itens to LocalStorage
+  useEffect(() => {
+    localStorage.setItem('@kingz-imports/cart-itens', JSON.stringify(products))
+  }, [products])
 
   // Cart total without discount
   const subTotal = useMemo(() => {
