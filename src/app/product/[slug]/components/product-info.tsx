@@ -4,7 +4,7 @@ import BadgeDiscount from '@/components/ui/badge-discount'
 import { Button } from '@/components/ui/button'
 import { CartContext } from '@/providers/cart'
 import { ProductTotalPriceProps } from '@/utils/product'
-import { MinusIcon, PlusIcon } from 'lucide-react'
+import { MinusIcon, MoveRight, PlusIcon, ShoppingCartIcon } from 'lucide-react'
 import { useContext, useState } from 'react'
 import { useSession } from 'next-auth/react'
 
@@ -71,18 +71,20 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
 
       {status === 'authenticated' ? (
         <Button
-          className='mt-8 font-bold uppercase'
+          className='mt-8 font-bold uppercase flex items-center gap-2'
           onClick={handleAddToCartQuantity}
         >
           adicionar ao carrinho
+          <ShoppingCartIcon size={16} />
         </Button>
       ) : (
         <Button
-          className='mt-8 font-bold uppercase'
+          className='mt-8 font-bold uppercase flex items-center gap-2'
           onClick={handleAddToCartQuantity}
           disabled
         >
-          acessar conta para adicionar o item ao carrinho
+          acessar conta
+          <MoveRight size={16} />
         </Button>
       )}
     </div>
