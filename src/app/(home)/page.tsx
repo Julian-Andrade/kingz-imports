@@ -31,7 +31,7 @@ export default async function Home() {
   })
 
   return (
-    <div className='p-5 bg-zinc-100'>
+    <div className='p-5'>
       <div className='mt-7'>
         <Link href='/category/iphones'>
           <PromoBanner

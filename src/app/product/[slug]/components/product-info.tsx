@@ -82,7 +82,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
           onClick={handleAddToCartQuantity}
           disabled
         >
-          você precisa estar logado para adicionar o item ao carrinho
+          acessar conta para adicionar o item ao carrinho
         </Button>
       )}
     </div>

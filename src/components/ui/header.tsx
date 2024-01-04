@@ -135,9 +135,7 @@ export const Header = () => {
       </Sheet>
 
       <Link href='/'>
-        <h1 className='text-lg'>
-          <span className='font-bold'>JUST</span> imports
-        </h1>
+        <h1 className='text-lg font-bold'>KINGZ</h1>
       </Link>
 
       <Sheet>
