@@ -16,7 +16,8 @@ async function main() {
       {
         name: 'iPhone 15 Pro (128gb) Titânio Preto',
         slug: 'iphone-15-pro-128gb-titanio-preto',
-        description: 'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
+        description:
+          'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
         imageUrls: [
           'https://i.ibb.co/q1QBtWN/iphone-titanio-preto-01.jpg',
           'https://i.ibb.co/nLtZ682/iphone-titanio-preto-02.jpg',
@@ -30,7 +31,8 @@ async function main() {
       {
         name: 'iPhone 15 Pro (128gb) Titânio Branco',
         slug: 'iphone-15-pro-128gb-titanio-branco',
-        description: 'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
+        description:
+          'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
         imageUrls: [
           'https://i.ibb.co/NCnRT9q/iphone-titanio-branco-01.jpg',
           'https://i.ibb.co/gTfMxGK/iphone-titanio-branco-02.jpg',
@@ -44,7 +46,8 @@ async function main() {
       {
         name: 'iPhone 15 Pro (128gb) Titânio Natural',
         slug: 'iphone-15-pro-128gb-titanio-natural',
-        description: 'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
+        description:
+          'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
         imageUrls: [
           'https://i.ibb.co/F3V5VNN/iphone-titanio-natural-01.jpg',
           'https://i.ibb.co/fqt89ms/iphone-titanio-natural-02.jpg',
@@ -58,7 +61,8 @@ async function main() {
       {
         name: 'iPhone 15 Pro (128gb) Titânio Azul',
         slug: 'iphone-15-pro-128gb-titanio-azul',
-        description: 'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
+        description:
+          'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
         imageUrls: [
           'https://i.ibb.co/3f4k5X4/iphone-titanio-azul-01.jpg',
           'https://i.ibb.co/pjsBzmD/iphone-titanio-azul-02.jpg',
@@ -72,7 +76,8 @@ async function main() {
       {
         name: 'iPhone 15 Pro Max (256gb) Titânio Preto',
         slug: 'iphone-15-pro-max-256gb-titanio-preto',
-        description: 'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
+        description:
+          'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
         imageUrls: [
           'https://i.ibb.co/q1QBtWN/iphone-titanio-preto-01.jpg',
           'https://i.ibb.co/nLtZ682/iphone-titanio-preto-02.jpg',
@@ -86,7 +91,8 @@ async function main() {
       {
         name: 'iPhone 15 Pro Max (256gb) Titânio Branco',
         slug: 'iphone-15-pro-max-256gb-titanio-branco',
-        description: 'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
+        description:
+          'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
         imageUrls: [
           'https://i.ibb.co/NCnRT9q/iphone-titanio-branco-01.jpg',
           'https://i.ibb.co/gTfMxGK/iphone-titanio-branco-02.jpg',
@@ -100,7 +106,8 @@ async function main() {
       {
         name: 'iPhone 15 Pro Max (256gb) Titânio Natural',
         slug: 'iphone-15-pro-max-256gb-titanio-natural',
-        description: 'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
+        description:
+          'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
         imageUrls: [
           'https://i.ibb.co/F3V5VNN/iphone-titanio-natural-01.jpg',
           'https://i.ibb.co/fqt89ms/iphone-titanio-natural-02.jpg',
@@ -114,7 +121,8 @@ async function main() {
       {
         name: 'iPhone 15 Pro Max (256gb) Titânio Azul',
         slug: 'iphone-15-pro-max-256gb-titanio-azul',
-        description: 'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
+        description:
+          'iPhone 15 Pro. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.',
         imageUrls: [
           'https://i.ibb.co/3f4k5X4/iphone-titanio-azul-01.jpg',
           'https://i.ibb.co/pjsBzmD/iphone-titanio-azul-02.jpg',
@@ -135,7 +143,7 @@ async function main() {
       data: {
         name: 'Watchs',
         slug: 'watchs',
-        imageUrl: 'https://www.apple.com/br/watch/images/overview/ultra/tile_ultra_2__cu2x3w2l0zwy_medium.jpg',
+        imageUrl: 'https://i.ibb.co/Rz7jrjH/watch-ultra-2-capa.jpg',
       },
     })
 
@@ -240,7 +248,8 @@ async function main() {
       data: {
         name: 'Ipads',
         slug: 'ipads',
-        imageUrl: 'https://i.ibb.co/MPzrRsX/apple-ipad-10-ger-a14-10-9-wifi-celular-256gb-silver-03.jpg',
+        imageUrl:
+          'https://i.ibb.co/MPzrRsX/apple-ipad-10-ger-a14-10-9-wifi-celular-256gb-silver-03.jpg',
       },
     })
 
@@ -330,7 +339,8 @@ async function main() {
       data: {
         name: 'Macs',
         slug: 'macs',
-        imageUrl: 'https://i.ibb.co/Y2zkyX1/apple-macbook-pro-14-m3-8gb-512gb-prateado-01.jpg',
+        imageUrl:
+          'https://i.ibb.co/Y2zkyX1/apple-macbook-pro-14-m3-8gb-512gb-prateado-01.jpg',
       },
     })
 
@@ -508,7 +518,7 @@ async function main() {
       data: {
         name: 'Acessórios',
         slug: 'acessorios',
-        imageUrl: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/aalp-magsafe-header-202309?wid=2880&hei=960&fmt=png-alpha&.v=1699314795326',
+        imageUrl: 'https://i.ibb.co/xShQSgd/accessories-capa.jpg',
       },
     })
 

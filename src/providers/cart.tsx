@@ -42,10 +42,12 @@ export const CartContext = createContext<ICartContext>({
 const CartProvider = ({ children }: CartProviderProps) => {
   const [products, setProducts] = useState<CartProduct[]>([])
 
-  // Add Cart Itens to LocalStorage
+  // Get Items Cart at LocalStorage
   useEffect(() => {
-    localStorage.setItem('@kingz-imports/cart-itens', JSON.stringify(products))
-  }, [products])
+    setProducts(
+      JSON.parse(localStorage.getItem('@kingz-imports/cart-items') || '[]')
+    )
+  }, [])
 
   // Cart total without discount
   const subTotal = useMemo(() => {
