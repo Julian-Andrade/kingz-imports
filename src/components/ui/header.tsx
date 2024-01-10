@@ -8,6 +8,7 @@ import {
   Home,
   ListOrdered,
   MoveLeft,
+  ListChecksIcon,
 } from 'lucide-react'
 import { Button } from './button'
 import { Card } from './card'
@@ -107,6 +108,18 @@ export const Header = () => {
                 >
                   <Home size={16} />
                   Página Inicial
+                </Button>
+              </Link>
+            </SheetClose>
+
+            <SheetClose asChild>
+              <Link href='/orders'>
+                <Button
+                  variant='outline'
+                  className='w-full justify-start gap-2 border-zinc-200 hover:bg-zinc-200'
+                >
+                  <ListChecksIcon size={16} />
+                  Meus Pedidos
                 </Button>
               </Link>
             </SheetClose>
