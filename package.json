@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "fix-lint": "next lint -- --fix",
-    "prepare": "prisma generate"
+    "prepare": "prisma generate",
+    "stripe:listen": "stripe listen --forward-to localhost:3000/api/order/payment-success"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
