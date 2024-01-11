@@ -14,13 +14,16 @@ const badgeVariants = cva(
           'border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80',
         destructive:
           'border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80',
+        pendent:
+          'border-transparent bg-destructive text-destructive-foreground',
+        confirmed: 'border-transparent bg-lime-700 text-destructive-foreground',
         outline: 'text-foreground',
       },
     },
     defaultVariants: {
       variant: 'default',
     },
-  },
+  }
 )
 
 export interface BadgeProps

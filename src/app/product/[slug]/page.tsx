@@ -5,6 +5,10 @@ import productTotalPrice from '@/utils/product'
 import ProductCarouselList from '@/components/ui/product-carousel-list'
 import SectionTitle from '@/components/ui/section-title'
 
+export const metadata = {
+  title: 'Produtos',
+}
+
 interface ProductDetailsPageProps {
   params: {
     slug: string

@@ -4,6 +4,10 @@ import { CATEGORY_ICON } from '@/constants/category-icon'
 import { prismaClient } from '@/lib/prisma'
 import productTotalPrice from '@/utils/product'
 
+export const metadata = {
+  title: 'Produto',
+}
+
 const CategoryProducts = async ({ params }: any) => {
   const category = await prismaClient.category.findFirst({
     where: {

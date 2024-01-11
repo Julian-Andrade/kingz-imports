@@ -4,12 +4,15 @@ import { prismaClient } from '@/lib/prisma'
 import { ListChecksIcon, MoveRight } from 'lucide-react'
 import { getServerSession } from 'next-auth'
 import OrderItem from './components/order-item'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
+
+export const metadata = {
+  title: 'Compras',
+}
 
 const OrderPage = async () => {
   const user = await getServerSession(authOptions)
 
+  // User unauthenticated
   if (!user) {
     return (
       <div className='flex flex-col items-center justify-center p-5'>

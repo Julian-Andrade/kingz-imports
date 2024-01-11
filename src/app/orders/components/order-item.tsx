@@ -11,6 +11,7 @@ import OrderProductItem from './order-product-item'
 import { Separator } from '@/components/ui/separator'
 import { useMemo } from 'react'
 import getOrderStatus from './helpers/status'
+import { Badge } from '@/components/ui/badge'
 
 interface OrderItemProps {
   order: Prisma.OrderGetPayload<{
@@ -75,7 +76,15 @@ const OrderItem = ({ order }: OrderItemProps) => {
                 <div className='flex items-center justify-between'>
                   <div className='font-bold'>
                     <p>Status</p>
-                    <p>{getOrderStatus(order.status)}</p>
+                    {order.status === 'PAYMENT_CONFIRMED' ? (
+                      <Badge variant='confirmed'>
+                        {getOrderStatus(order.status)}
+                      </Badge>
+                    ) : (
+                      <Badge variant='pendent'>
+                        {getOrderStatus(order.status)}
+                      </Badge>
+                    )}
                   </div>
 
                   <div>

@@ -3,6 +3,10 @@ import { ListOrdered } from 'lucide-react'
 import CategoryItem from './components/category-item'
 import { prismaClient } from '@/lib/prisma'
 
+export const metadata = {
+  title: 'Catálogo',
+}
+
 export default async function CatalogPage() {
   const categories = await prismaClient.category.findMany({})
 
