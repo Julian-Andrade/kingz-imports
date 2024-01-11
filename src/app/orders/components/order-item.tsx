@@ -10,6 +10,7 @@ import { format } from 'date-fns'
 import OrderProductItem from './order-product-item'
 import { Separator } from '@/components/ui/separator'
 import { useMemo } from 'react'
+import getOrderStatus from './helpers/status'
 
 interface OrderItemProps {
   order: Prisma.OrderGetPayload<{
@@ -69,7 +70,7 @@ const OrderItem = ({ order }: OrderItemProps) => {
                 <div className='flex items-center justify-between'>
                   <div className='font-bold'>
                     <p>Status</p>
-                    <p>{order.status}</p>
+                    <p>{getOrderStatus(order.status)}</p>
                   </div>
 
                   <div>
