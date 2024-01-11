@@ -1,15 +1,23 @@
 import BadgeTitle from '@/components/ui/badge-title'
 import { authOptions } from '@/lib/auth'
 import { prismaClient } from '@/lib/prisma'
-import { ListChecksIcon } from 'lucide-react'
+import { ListChecksIcon, MoveRight } from 'lucide-react'
 import { getServerSession } from 'next-auth'
 import OrderItem from './components/order-item'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 const OrderPage = async () => {
-  const user = getServerSession(authOptions)
+  const user = await getServerSession(authOptions)
 
   if (!user) {
-    return <span>Aceesso Negado</span>
+    return (
+      <div className='flex flex-col items-center justify-center p-5'>
+        <p className='font-bold'>
+          Acesse sua conta para visualizar o histórico de pedidos
+        </p>
+      </div>
+    )
   }
 
   const orders = await prismaClient.order.findMany({

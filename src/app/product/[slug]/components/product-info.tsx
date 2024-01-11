@@ -80,7 +80,6 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
       ) : (
         <Button
           className='mt-8 font-bold uppercase flex items-center gap-2'
-          onClick={handleAddToCartQuantity}
           disabled
         >
           acessar conta
