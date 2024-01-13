@@ -9,6 +9,7 @@ import {
   ListOrdered,
   MoveLeft,
   ListChecksIcon,
+  User,
 } from 'lucide-react'
 import { Button } from './button'
 import { Card } from './card'
@@ -37,13 +38,13 @@ export const Header = () => {
   }
 
   return (
-    <Card className='flex items-center justify-between p-[2rem]'>
+    <Card className='flex items-center justify-between p-[2rem] rounded-none'>
       <Sheet>
         <SheetTrigger asChild>
           <Button
             size='icon'
             variant='outline'
-            className='border-zinc-200 hover:bg-zinc-200'
+            className='border-zinc-200 hover:bg-zinc-200 sm:hidden'
           >
             <MenuIcon />
           </Button>
@@ -155,21 +156,48 @@ export const Header = () => {
         <h1 className='text-lg font-bold'>KINGZ</h1>
       </Link>
 
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button
-            size='icon'
-            variant='outline'
-            className='border-zinc-200 hover:bg-zinc-200'
-          >
-            <ShoppingCartIcon />
-          </Button>
-        </SheetTrigger>
+      <div className='flex gap-6 text-sm font-bold max-[640px]:hidden'>
+        <Link href='/'>
+          <p className='hover:text-zinc-300 transition-colors'>Início</p>
+        </Link>
 
-        <SheetContent side='right'>
-          <Cart />
-        </SheetContent>
-      </Sheet>
+        <span className='w-[2px] bg-zinc-300'></span>
+
+        <Link href='/catalog'>
+          <p className='hover:text-zinc-300 transition-colors'>Catálogo</p>
+        </Link>
+
+        <span className='w-[2px] bg-zinc-300'></span>
+
+        <Link href='/deals'>
+          <p className='hover:text-zinc-300 transition-colors'>Ofertas</p>
+        </Link>
+      </div>
+
+      <div className='flex gap-5'>
+        <Button
+          size='icon'
+          variant='outline'
+          className='border-zinc-200 hover:bg-zinc-200 max-[640px]:hidden'
+        >
+          <User />
+        </Button>
+
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button
+              size='icon'
+              variant='outline'
+              className='border-zinc-200 hover:bg-zinc-200'
+            >
+              <ShoppingCartIcon />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side='right'>
+            <Cart />
+          </SheetContent>
+        </Sheet>
+      </div>
     </Card>
   )
 }

@@ -31,52 +31,62 @@ export default async function Home() {
   })
 
   return (
-    <div className='p-5'>
-      <div className='mt-7'>
+    <>
+      <div className='w-full'>
         <Link href='/category/iphones'>
           <PromoBanner
             src='/banner-home-01.png'
             alt='diversos modelos de iphone'
+            variant='roundedNone'
           />
         </Link>
       </div>
 
-      <div className='mt-7'>
-        <Categories />
-      </div>
+      <div className='p-5'>
+        <div className='mt-7'>
+          <Categories />
+        </div>
 
-      <div className='mt-7'>
-        <SectionTitle title='Ofertas' />
-        <ProductCarouselList products={deals} />
-      </div>
+        <div className='mt-7'>
+          <SectionTitle title='Ofertas' />
+          <ProductCarouselList products={deals} />
+        </div>
 
-      <div className='mt-7'>
-        <Link href='/category/watchs'>
-          <PromoBanner
-            src='/banner-home-02.png'
-            alt='os melhores watchs já criados'
-          />
-        </Link>
-      </div>
+        <div className='mt-7 md:grid md:grid-cols-2 md:gap-4'>
+          <Link href='/category/watchs'>
+            <PromoBanner
+              src='/banner-home-02.png'
+              alt='os melhores watchs já criados'
+            />
+          </Link>
 
-      <div className='mt-7'>
-        <SectionTitle title='Macs' />
-        <ProductCarouselList products={macs} />
-      </div>
+          <Link href='/category/watchs' className='hidden md:block'>
+            <PromoBanner
+              src='/banner-home-02.png'
+              alt='os melhores watchs já criados'
+            />
+          </Link>
+        </div>
 
-      <div className='mt-7'>
-        <Link href='/category/ipads'>
-          <PromoBanner
-            src='/banner-home-03.png'
-            alt='encontre o ipad perfeito para você'
-          />
-        </Link>
-      </div>
+        <div className='mt-7'>
+          <SectionTitle title='Macs' />
+          <ProductCarouselList products={macs} />
+        </div>
 
-      <div className='mt-7'>
-        <SectionTitle title='Watchs' />
-        <ProductCarouselList products={watchs} />
+        <div className='mt-7'>
+          <Link href='/category/ipads'>
+            <PromoBanner
+              src='/banner-home-03.png'
+              alt='encontre o ipad perfeito para você'
+            />
+          </Link>
+        </div>
+
+        <div className='mt-7'>
+          <SectionTitle title='Watchs' />
+          <ProductCarouselList products={watchs} />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
