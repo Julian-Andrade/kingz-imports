@@ -29,7 +29,7 @@ const CategoryProducts = async ({ params }: any) => {
         title={category?.name}
       />
 
-      <div className='grid grid-cols-2 gap-10'>
+      <div className='grid grid-cols-2 gap-10 md:grid-cols-4'>
         {category.Product.map((product) => (
           <ProductItem key={product.id} product={productTotalPrice(product)} />
         ))}

@@ -10,6 +10,7 @@ import {
   MoveLeft,
   ListChecksIcon,
   User,
+  LogOutIcon,
 } from 'lucide-react'
 import { Button } from './button'
 import { Card } from './card'
@@ -161,13 +162,13 @@ export const Header = () => {
           <p className='hover:text-zinc-300 transition-colors'>Início</p>
         </Link>
 
-        <span className='w-[2px] bg-zinc-300'></span>
+        <span className='w-[1px] bg-zinc-300'></span>
 
         <Link href='/catalog'>
           <p className='hover:text-zinc-300 transition-colors'>Catálogo</p>
         </Link>
 
-        <span className='w-[2px] bg-zinc-300'></span>
+        <span className='w-[1px] bg-zinc-300'></span>
 
         <Link href='/deals'>
           <p className='hover:text-zinc-300 transition-colors'>Ofertas</p>
@@ -175,13 +176,32 @@ export const Header = () => {
       </div>
 
       <div className='flex gap-5'>
-        <Button
-          size='icon'
-          variant='outline'
-          className='border-zinc-200 hover:bg-zinc-200 max-[640px]:hidden'
-        >
-          <User />
-        </Button>
+        {status === 'unauthenticated' ? (
+          <>
+            <div className='flex items-center gap-2'>
+              <Button
+                onClick={handleLoginClick}
+                size='icon'
+                variant='outline'
+                className='border-zinc-200 hover:bg-zinc-200 max-[640px]:hidden'
+              >
+                <User />
+              </Button>
+              <p className='text-xs'>
+                Faça <span className='font-bold'>LOGIN</span>
+              </p>
+            </div>
+          </>
+        ) : (
+          <Button
+            onClick={handleLogoutClick}
+            size='icon'
+            variant='outline'
+            className='border-zinc-200 hover:bg-zinc-200 max-[640px]:hidden'
+          >
+            <LogOutIcon />
+          </Button>
+        )}
 
         <Sheet>
           <SheetTrigger asChild>

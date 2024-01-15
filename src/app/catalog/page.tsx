@@ -14,7 +14,7 @@ export default async function CatalogPage() {
     <div className='flex flex-col gap-8 p-5'>
       <BadgeTitle iconSvg={<ListOrdered size={16} />} title='Catálogo' />
 
-      <div className='grid grid-cols-2 gap-10'>
+      <div className='grid grid-cols-2 gap-10 md:grid-cols-3'>
         {categories.map((category) => (
           <CategoryItem key={category.id} category={category} />
         ))}
