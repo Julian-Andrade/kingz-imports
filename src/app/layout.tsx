@@ -4,6 +4,9 @@ import { Header } from '@/components/ui/header'
 import { AuthProvider } from '@/providers/auth'
 import Footer from '@/components/ui/footer'
 import CartProvider from '@/providers/cart'
+import SearchProvider from '@/providers/search'
+import Search from '@/components/search/search'
+import { Toaster } from 'react-hot-toast'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,10 +32,14 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className='flex h-full flex-col'>
           <AuthProvider>
+            <Toaster />
             <CartProvider>
-              <Header />
-              <div className='flex-1 bg-zinc-100'>{children}</div>
-              <Footer />
+              <SearchProvider>
+                <Header />
+                <Search />
+                <div className='flex-1 bg-zinc-100'>{children}</div>
+                <Footer />
+              </SearchProvider>
             </CartProvider>
           </AuthProvider>
         </div>

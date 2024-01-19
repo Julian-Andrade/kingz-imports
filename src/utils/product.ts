@@ -1,4 +1,5 @@
 import { Product } from '@prisma/client'
+import { formatCurrencyToBrazil } from './formatCurrencyToBrazil'
 
 export interface ProductTotalPriceProps extends Product {
   totalPrice: number

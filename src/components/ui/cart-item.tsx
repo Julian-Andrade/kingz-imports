@@ -3,6 +3,8 @@ import { MinusIcon, PlusIcon, TrashIcon } from 'lucide-react'
 import Image from 'next/image'
 import { Button } from './button'
 import { useContext } from 'react'
+import toast from 'react-hot-toast'
+import { formatCurrencyToBrazil } from '@/utils/formatCurrencyToBrazil'
 
 interface CartItemProps {
   product: CartProduct
@@ -11,6 +13,9 @@ interface CartItemProps {
 const CartItem = ({ product }: CartItemProps) => {
   const { descreaseProductToCart, increaseProductToCart, removeProductToCart } =
     useContext(CartContext)
+
+  const formatedTotalPrice = formatCurrencyToBrazil(product.totalPrice)
+  const formatedBasePrice = formatCurrencyToBrazil(Number(product.basePrice))
 
   const handleDecreaseProductQuantityClick = () => {
     descreaseProductToCart(product.id)
@@ -22,6 +27,7 @@ const CartItem = ({ product }: CartItemProps) => {
 
   const handleRemoveProductQuantityClick = () => {
     removeProductToCart(product.id)
+    toast.success('Item removido do carrinho com sucesso.')
   }
 
   return (
@@ -40,13 +46,11 @@ const CartItem = ({ product }: CartItemProps) => {
         <p className='text-xs font-semibold'>{product.name}</p>
 
         <div className='flex items-center gap-2'>
-          <p className='text-sm font-bold'>
-            R$ {product.totalPrice.toFixed(2)}
-          </p>
+          <p className='text-sm font-bold'>{formatedTotalPrice}</p>
 
           {product.discountPercentage > 0 && (
             <p className='text-xs line-through opacity-75'>
-              R$ {Number(product.basePrice).toFixed(2)}
+              {formatedBasePrice}
             </p>
           )}
         </div>

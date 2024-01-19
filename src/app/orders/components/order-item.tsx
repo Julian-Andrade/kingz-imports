@@ -12,6 +12,7 @@ import { Separator } from '@/components/ui/separator'
 import { useMemo } from 'react'
 import getOrderStatus from './helpers/status'
 import { Badge } from '@/components/ui/badge'
+import { formatCurrencyToBrazil } from '@/utils/formatCurrencyToBrazil'
 
 interface OrderItemProps {
   order: Prisma.OrderGetPayload<{
@@ -50,6 +51,10 @@ const OrderItem = ({ order }: OrderItemProps) => {
 
   // Discounts
   const discounts = subtotal - totalPrice
+
+  const formatedTotalPrice = formatCurrencyToBrazil(totalPrice)
+  const formatedBasePrice = formatCurrencyToBrazil(subtotal)
+  const formatedDiscounts = formatCurrencyToBrazil(discounts)
 
   return (
     <p>
@@ -110,7 +115,7 @@ const OrderItem = ({ order }: OrderItemProps) => {
 
                   <div className='flex w-full justify-between py-3'>
                     <p>Subtotal</p>
-                    <p>R$ {subtotal.toFixed(2)} </p>
+                    <p>{formatedBasePrice} </p>
                   </div>
 
                   <Separator />
@@ -124,14 +129,14 @@ const OrderItem = ({ order }: OrderItemProps) => {
 
                   <div className='flex w-full justify-between py-3'>
                     <p>Descontos</p>
-                    <p>- R$ {discounts.toFixed(2)}</p>
+                    <p>- {formatedDiscounts}</p>
                   </div>
 
                   <Separator />
 
                   <div className='flex w-full justify-between py-3 text-sm font-bold'>
                     <p>Total</p>
-                    <p>R$ {totalPrice.toFixed(2)}</p>
+                    <p>{formatedTotalPrice}</p>
                   </div>
                 </div>
               </div>

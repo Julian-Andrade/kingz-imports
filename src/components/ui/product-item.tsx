@@ -1,13 +1,17 @@
-import { ProductTotalPriceProps } from '@/utils/product'
+import productTotalPrice, { ProductTotalPriceProps } from '@/utils/product'
 import Image from 'next/image'
 import Link from 'next/link'
 import BadgeDiscount from './badge-discount'
+import { formatCurrencyToBrazil } from '@/utils/formatCurrencyToBrazil'
 
 interface ProductItemProps {
   product: ProductTotalPriceProps
 }
 
 const ProductItem = ({ product }: ProductItemProps) => {
+  const formatedTotalPrice = formatCurrencyToBrazil(product.totalPrice)
+  const formatedBasePrice = formatCurrencyToBrazil(Number(product.basePrice))
+
   return (
     <Link href={`/product/${product.slug}`}>
       <div className='flex flex-col gap-4'>
@@ -38,17 +42,15 @@ const ProductItem = ({ product }: ProductItemProps) => {
           <div className='flex items-center gap-2'>
             {product.discountPercentage > 0 ? (
               <>
-                <p className='font-bold text-xs'>
-                  R$ {product.totalPrice.toFixed(2)}
-                </p>
+                <p className='font-bold text-xs'>{formatedTotalPrice}</p>
 
                 <p className='text-xs line-through opacity-50'>
-                  R$ {Number(product.basePrice).toFixed(2)}
+                  {formatedBasePrice}
                 </p>
               </>
             ) : (
               <p className='opacity-65 text-xs line-through'>
-                R$ {Number(product.basePrice).toFixed(2)}
+                {formatedBasePrice}
               </p>
             )}
           </div>

@@ -26,6 +26,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Separator } from '@/components/ui/separator'
 import Link from 'next/link'
 import Cart from './cart'
+import Search from '../search/search'
 
 export const Header = () => {
   const { status, data } = useSession()
@@ -178,7 +179,7 @@ export const Header = () => {
       <div className='flex gap-5'>
         {status === 'unauthenticated' ? (
           <>
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-2 max-[640px]:hidden'>
               <Button
                 onClick={handleLoginClick}
                 size='icon'
@@ -187,31 +188,37 @@ export const Header = () => {
               >
                 <User />
               </Button>
-              <p className='text-xs'>
-                Faça <span className='font-bold'>LOGIN</span>
-              </p>
+              <p className='text-xs max-[640px]:hidden font-bold'>LOGIN</p>
             </div>
           </>
         ) : (
-          <Button
-            onClick={handleLogoutClick}
-            size='icon'
-            variant='outline'
-            className='border-zinc-200 hover:bg-zinc-200 max-[640px]:hidden'
-          >
-            <LogOutIcon />
-          </Button>
+          <>
+            <div className='flex items-center gap-2 max-[640px]:hidden'>
+              <Button
+                onClick={handleLogoutClick}
+                size='icon'
+                variant='outline'
+                className='border-zinc-200 hover:bg-zinc-200 max-[640px]:hidden'
+              >
+                <LogOutIcon />
+              </Button>
+              <p className='text-xs max-[640px]:hidden font-bold'>LOGOUT</p>
+            </div>
+          </>
         )}
 
         <Sheet>
           <SheetTrigger asChild>
-            <Button
-              size='icon'
-              variant='outline'
-              className='border-zinc-200 hover:bg-zinc-200'
-            >
-              <ShoppingCartIcon />
-            </Button>
+            <div className='flex items-center gap-2 max-[640px]:hidden'>
+              <Button
+                size='icon'
+                variant='outline'
+                className='border-zinc-200 hover:bg-zinc-200'
+              >
+                <ShoppingCartIcon />
+              </Button>
+              <p className='text-xs max-[640px]:hidden font-bold'>CARRINHO</p>
+            </div>
           </SheetTrigger>
           <SheetContent side='right'>
             <Cart />

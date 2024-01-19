@@ -11,6 +11,7 @@ import createCheckout from '@/actions/checkout'
 import { loadStripe } from '@stripe/stripe-js'
 import { useSession } from 'next-auth/react'
 import { createOrder } from '@/actions/order'
+import { formatCurrencyToBrazil } from '@/utils/formatCurrencyToBrazil'
 
 const Cart = () => {
   const { data } = useSession()
@@ -32,6 +33,10 @@ const Cart = () => {
       sessionId: checkout.id,
     })
   }
+
+  const formatedTotalPrice = formatCurrencyToBrazil(total)
+  const formatedBasePrice = formatCurrencyToBrazil(subTotal)
+  const formatedDiscount = formatCurrencyToBrazil(totalDiscount)
 
   return (
     <div className='flex h-full flex-col'>
@@ -62,7 +67,7 @@ const Cart = () => {
         <div className='mt-8 flex flex-col gap-4'>
           <div className='flex items-center justify-between text-xs'>
             <p>Subtotal</p>
-            <p>R$ {subTotal.toFixed(2)}</p>
+            <p>{formatedBasePrice}</p>
           </div>
 
           <Separator />
@@ -76,14 +81,14 @@ const Cart = () => {
 
           <div className='flex items-center justify-between text-xs'>
             <p>Descontos</p>
-            <p>- R$ {totalDiscount.toFixed(2)}</p>
+            <p>- {formatedDiscount}</p>
           </div>
 
           <Separator />
 
           <div className='flex items-center justify-between text-md font-bold'>
             <p>Total</p>
-            <p>R$ {total.toFixed(2)}</p>
+            <p>{formatedTotalPrice}</p>
           </div>
 
           <Button
