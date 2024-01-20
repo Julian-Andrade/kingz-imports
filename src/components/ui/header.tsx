@@ -9,8 +9,8 @@ import {
   ListOrdered,
   MoveLeft,
   ListChecksIcon,
-  User,
   LogOutIcon,
+  LogIn,
 } from 'lucide-react'
 import { Button } from './button'
 import { Card } from './card'
@@ -26,7 +26,6 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Separator } from '@/components/ui/separator'
 import Link from 'next/link'
 import Cart from './cart'
-import Search from '../search/search'
 
 export const Header = () => {
   const { status, data } = useSession()
@@ -154,27 +153,23 @@ export const Header = () => {
         </SheetContent>
       </Sheet>
 
-      <Link href='/'>
+      <Link href='/' className='flex items-center gap-10'>
         <h1 className='text-lg font-bold'>KINGZ</h1>
+
+        <div className='flex gap-6 text-sm max-[640px]:hidden'>
+          <Link href='/'>
+            <p className='hover:text-zinc-300 transition-colors'>Início</p>
+          </Link>
+
+          <Link href='/catalog'>
+            <p className='hover:text-zinc-300 transition-colors'>Catálogo</p>
+          </Link>
+
+          <Link href='/deals'>
+            <p className='hover:text-zinc-300 transition-colors'>Ofertas</p>
+          </Link>
+        </div>
       </Link>
-
-      <div className='flex gap-6 text-sm font-bold max-[640px]:hidden'>
-        <Link href='/'>
-          <p className='hover:text-zinc-300 transition-colors'>Início</p>
-        </Link>
-
-        <span className='w-[1px] bg-zinc-300'></span>
-
-        <Link href='/catalog'>
-          <p className='hover:text-zinc-300 transition-colors'>Catálogo</p>
-        </Link>
-
-        <span className='w-[1px] bg-zinc-300'></span>
-
-        <Link href='/deals'>
-          <p className='hover:text-zinc-300 transition-colors'>Ofertas</p>
-        </Link>
-      </div>
 
       <div className='flex gap-5'>
         {status === 'unauthenticated' ? (
@@ -186,30 +181,47 @@ export const Header = () => {
                 variant='outline'
                 className='border-zinc-200 hover:bg-zinc-200 max-[640px]:hidden'
               >
-                <User />
+                <LogIn />
               </Button>
-              <p className='text-xs max-[640px]:hidden font-bold'>LOGIN</p>
             </div>
           </>
         ) : (
           <>
             <div className='flex items-center gap-2 max-[640px]:hidden'>
-              <Button
-                onClick={handleLogoutClick}
-                size='icon'
-                variant='outline'
-                className='border-zinc-200 hover:bg-zinc-200 max-[640px]:hidden'
-              >
-                <LogOutIcon />
-              </Button>
-              <p className='text-xs max-[640px]:hidden font-bold'>LOGOUT</p>
+              {status === 'authenticated' && data?.user && (
+                <Avatar>
+                  <AvatarFallback>
+                    olá, {data.user.name?.[0].toUpperCase()}
+                  </AvatarFallback>
+                  {data.user.image && <AvatarImage src={data.user.image} />}
+                </Avatar>
+              )}
+              <div className='flex flex-col gap-1 font-bold text-xs'>
+                <span>Olá, {data?.user?.name}</span>
+
+                <div className='flex gap-3 font-bold text-xs'>
+                  <Link
+                    href='/user'
+                    className='text-xs font-normal hover:opacity-50 hover:transition-colors'
+                  >
+                    MINHA CONTA
+                  </Link>
+                  <Link
+                    href='/'
+                    onClick={handleLogoutClick}
+                    className='text-xs font-normal hover:opacity-50 hover:transition-colors'
+                  >
+                    SAIR
+                  </Link>
+                </div>
+              </div>
             </div>
           </>
         )}
 
         <Sheet>
           <SheetTrigger asChild>
-            <div className='flex items-center gap-2 max-[640px]:hidden'>
+            <div className='flex items-center gap-2'>
               <Button
                 size='icon'
                 variant='outline'
@@ -217,7 +229,6 @@ export const Header = () => {
               >
                 <ShoppingCartIcon />
               </Button>
-              <p className='text-xs max-[640px]:hidden font-bold'>CARRINHO</p>
             </div>
           </SheetTrigger>
           <SheetContent side='right'>
