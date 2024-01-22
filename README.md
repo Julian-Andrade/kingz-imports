@@ -22,7 +22,7 @@ Desafio realizado durante a Full Stack Week, um evento que teve como propósito 
   - <b>TailwindCSS/ui</b> - Framework CSS de código aberto que oferece várias classes para serem utilizadas;
   - <b>API Stripe</b> - API de pagamentos popular que processa e realiza pagamentos de forma segura;
   - <b>date-fns</b> - Biblioteca JavaScript para auxiliar na manipulação de datas;
-  - <b>React Hot Toast</b> Biblioteca para adicionar pop-ups e notificações ao projeto.
+  - <b>React Hot Toast</b> - Biblioteca para adicionar pop-ups e notificações ao projeto.
 
 ---
 
